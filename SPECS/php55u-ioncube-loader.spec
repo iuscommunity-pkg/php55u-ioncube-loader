@@ -1,12 +1,11 @@
-%global php php54
-%global php_basever 5.4
+%global php php55u
+%global php_basever 5.5
 %global _php5_mod_dir %{_libdir}/php/modules
-%global basever 4.7
 
 Name:       %{php}-ioncube-loader
 Summary:    IonCube Loader provides PHP Modules to read IonCube Encoded Files
-Version:    %{basever}.2
-Release:    1.ius%{?dist}
+Version:    4.7.2
+Release:    2.ius%{?dist}
 License:    Redistributable, no modification permitted
 URL:        http://www.ioncube.com
 Group:      Development/Languages
@@ -14,9 +13,8 @@ Group:      Development/Languages
 # we must include both sources so the resulting srpm can build for either arch
 Source0:    http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86.tar.gz
 Source1:    http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
-BuildRoot:  %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX) 
-Requires:   %{php} >= %{php_basever}
-Conflicts:  php-ioncube-loader < %{basever}
+Requires:   php >= %{php_basever}
+Conflicts:  php-ioncube-loader < %{version}
 Provides:   php-ioncube-loader = %{version}-%{release}
 
 %description
@@ -65,6 +63,9 @@ EOF
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}_ts.so
 
 %changelog
+* Wed Nov 26 2014 Carl George <carl.george@rackspace.com> - 4.7.2-2.ius
+- Port from php54 to php55u
+
 * Mon Nov 25 2014 Carl George <carl.george@rackspace.com> - 4.7.2-1.ius
 - Latest upstream
 
