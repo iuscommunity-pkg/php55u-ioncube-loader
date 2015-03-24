@@ -18,6 +18,7 @@ Source0:    http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x
 Source1:    http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
 BuildRequires: %{php_base}-devel
 Requires:   %{php_base}(api) = %{php_core_api}
+Conflicts:  php-ioncube-loader < %{version}
 Provides:   php-ioncube-loader = %{version}-%{release}
 
 
