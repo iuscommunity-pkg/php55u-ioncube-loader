@@ -2,6 +2,9 @@
 %global php_basever 5.5
 %global _php5_mod_dir %{_libdir}/php/modules
 
+# [ionCube Loader] The Loader must appear as the first entry in the php.ini file
+%global ininame 01-ioncube-loader.ini
+
 Name:       %{php}-ioncube-loader
 Summary:    IonCube Loader provides PHP Modules to read IonCube Encoded Files
 Version:    4.7.5
@@ -43,7 +46,7 @@ IonCube Loader provides PHP Modules to read IonCube Encoded Files
 install -m 755 ioncube_loader_lin_%{php_basever}.so %{buildroot}%{_php5_mod_dir}
 install -m 755 ioncube_loader_lin_%{php_basever}_ts.so %{buildroot}%{_php5_mod_dir}
 
-%{__cat} >> %{buildroot}/%{_sysconfdir}/php.d/ioncube-loader.ini <<EOF
+%{__cat} >> %{buildroot}/%{_sysconfdir}/php.d/%{ininame} <<EOF
 
 ; Configured for PHP ${php_basever}
 zend_extension=%{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}.so
@@ -58,7 +61,7 @@ EOF
 
 %files
 %doc README.txt LICENSE.txt
-%config(noreplace) %attr(644,root,root) %{_sysconfdir}/php.d/ioncube-loader.ini
+%config(noreplace) %attr(644,root,root) %{_sysconfdir}/php.d/%{ininame}
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}.so
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}_ts.so
 
