@@ -37,13 +37,13 @@ IonCube Loader provides PHP Modules to read IonCube Encoded Files
 
 %install
 %{__mkdir_p} %{buildroot}%{_php5_mod_dir} \
-             %{buildroot}/etc/php.d
+             %{buildroot}/%{_sysconfdir}/php.d
 
 # Install the shared objects
 install -m 755 ioncube_loader_lin_%{php_basever}.so %{buildroot}%{_php5_mod_dir}
 install -m 755 ioncube_loader_lin_%{php_basever}_ts.so %{buildroot}%{_php5_mod_dir}
 
-%{__cat} >> %{buildroot}/etc/php.d/ioncube-loader.ini <<EOF
+%{__cat} >> %{buildroot}/%{_sysconfdir}/php.d/ioncube-loader.ini <<EOF
 
 ; Configured for PHP ${php_basever}
 zend_extension=%{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}.so
@@ -58,7 +58,7 @@ EOF
 
 %files
 %doc README.txt LICENSE.txt
-%config(noreplace) %attr(644,root,root) /etc/php.d/ioncube-loader.ini
+%config(noreplace) %attr(644,root,root) %{_sysconfdir}/php.d/ioncube-loader.ini
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}.so
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}_ts.so
 
