@@ -17,8 +17,10 @@ Requires:   php >= %{php_basever}
 Conflicts:  php-ioncube-loader < %{version}
 Provides:   php-ioncube-loader = %{version}-%{release}
 
+
 %description
 IonCube Loader provides PHP Modules to read IonCube Encoded Files
+
 
 %prep 
 %ifarch %{ix86}
@@ -28,8 +30,10 @@ IonCube Loader provides PHP Modules to read IonCube Encoded Files
 %setup -q -T -b 1 -n ioncube
 %endif
 
+
 %build
 # Nothing to do here
+
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
@@ -62,6 +66,7 @@ EOF
 %config(noreplace) %attr(644,root,root) /etc/php.d/ioncube-loader.ini
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}.so
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}_ts.so
+
 
 %changelog
 * Mon Mar 02 2015 Carl George <carl.george@rackspace.com> - 4.7.5-1.ius
