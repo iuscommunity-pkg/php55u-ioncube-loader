@@ -1,11 +1,11 @@
-%global php php55u
+%global php_base php55u
 %global php_basever 5.5
 %global _php5_mod_dir %{_libdir}/php/modules
 
 # [ionCube Loader] The Loader must appear as the first entry in the php.ini file
 %global ininame 01-ioncube-loader.ini
 
-Name:       %{php}-ioncube-loader
+Name:       %{php_base}-ioncube-loader
 Summary:    IonCube Loader provides PHP Modules to read IonCube Encoded Files
 Version:    4.7.5
 Release:    1.ius%{?dist}
