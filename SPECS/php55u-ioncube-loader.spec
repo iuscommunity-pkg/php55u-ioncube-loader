@@ -36,8 +36,6 @@ IonCube Loader provides PHP Modules to read IonCube Encoded Files
 
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 %{__mkdir_p} %{buildroot}%{_php5_mod_dir} \
              %{buildroot}/etc/php.d
 
@@ -57,11 +55,8 @@ zend_extension=%{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}.so
 ;
 EOF
 
-%clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root)
 %doc README.txt LICENSE.txt
 %config(noreplace) %attr(644,root,root) /etc/php.d/ioncube-loader.ini
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}.so
