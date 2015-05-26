@@ -1,7 +1,6 @@
 %global php_base php55u
 %global php_basever 5.5
 %global _php5_mod_dir %{_libdir}/php/modules
-%global debug_package %{nil}
 
 
 # [ionCube Loader] The Loader must appear as the first entry in the php.ini file
@@ -9,7 +8,7 @@
 
 Name:       %{php_base}-ioncube-loader
 Summary:    IonCube Loader provides PHP Modules to read IonCube Encoded Files
-Version:    5.0.4
+Version:    5.0.7
 Release:    1.ius%{?dist}
 License:    Redistributable, no modification permitted
 URL:        http://www.ioncube.com
@@ -70,6 +69,9 @@ EOF
 
 
 %changelog
+* Tue May 26 2015 Ben Harper <ben.harper@rackspace.com> - 5.0.7-1.ius
+- Latest upstream
+
 * Fri May 08 2015 Ben Harper <ben.harper@rackspace.com> - 5.0.4-1.ius
 - Latest upstream
 - disable debuginfo
